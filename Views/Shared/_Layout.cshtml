@@ -31,14 +31,20 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="PostExample">Post Method</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                    <li>
+                        <a href="javascript:void(0)" id="counter">0</a>
+                    </li>
                 </ul>
             </div>
         </div>
     </div>
     <div class="container body-content">
-        @RenderBody()
+        <div id="main-content">
+            @RenderBody()
+        </div
         <hr />
         <footer>
             <p>&copy; 2016 - HybridSPA</p>
@@ -49,6 +55,7 @@
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>
+        <script src="~/js/hybrid.spa.js" asp-append-version="true"></script>
     </environment>
     <environment names="Staging,Production">
         <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.3.min.js"
@@ -63,5 +70,15 @@
     </environment>
 
     @RenderSection("scripts", required: false)
+
+    <script>
+        $(function(){
+            var counter = 0;
+            setInterval(function(){
+                $('#counter').text(counter.toString());
+                counter++;
+            }, 1000)
+        })
+    </script>
 </body>
 </html>

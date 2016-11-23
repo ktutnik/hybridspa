@@ -1,3 +1,11 @@
 @{
-    Layout = "_Layout";
+    var query = Context.Request.Query;
+    if(query.ContainsKey("nolayout") && query["nolayout"].ToString().ToLower() == "true")
+    {
+        Layout = "";
+    }
+    else 
+    {
+        Layout = "_Layout";
+    }
 }

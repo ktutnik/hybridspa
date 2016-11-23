@@ -1,0 +1,10 @@
+@model ExampleModel
+@{
+    ViewData["Title"] = "Contact";
+}
+
+<form asp-controller="Home" asp-action="PostExample" method="POST">
+    Name: <input asp-for="Name"/> <br/>
+    Age: <input asp-for="Age"/> <br/>
+    <input type="submit"/>
+</form>

@@ -31,5 +31,16 @@ namespace HybridSPA.Controllers
         {
             return View();
         }
+
+        public IActionResult PostExample()
+        {
+            return View(new ExampleModel());
+        }
+
+        [HttpPost]
+        public IActionResult PostExample(ExampleModel model)
+        {
+            return RedirectToAction("Index", this.GetNoLayoutParams());
+        }
     }
 }
