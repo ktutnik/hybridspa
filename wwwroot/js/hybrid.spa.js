@@ -33,18 +33,24 @@
             .hide()
             .load(function(){
                 if(success){
-                    success($(this).contents().find('body'))
+                    success($(this).contents().find('body').children())
                 }
                 $(this).remove();
             })
     }
 
     function initForms(target){
-        var form = target.find('form');
-        if(form.length > 0){
-            form.attr('target', '__post_target');
-            form.attr('action', addNoLayout(form.attr('action')));
-        }
+        target.each(function(){
+            var form = $(this)
+            if(!form.is('form')){
+                form = form.find('form');
+            }
+            if(form.length > 0){
+                form.attr('target', '__post_target');
+                form.attr('action', addNoLayout(form.attr('action')));
+            }
+        });
+        
     }
 
     function post(form, success){
@@ -52,7 +58,7 @@
             .hide()
             .load(function(){
                 if(success){
-                    success($(this).contents().find('body'))
+                    success($(this).contents().find('body').children())
                 }
                 $(this).remove();
             });
