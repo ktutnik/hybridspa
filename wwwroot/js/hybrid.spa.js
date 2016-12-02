@@ -1,9 +1,17 @@
 (function(){
     $(document).on('click', 'a', function(){
-        get(addNoLayout($(this).attr('href')), function(data){
+        var url = $(this).attr('href');
+        get(addNoLayout(url), function(data){
             processResponse($(data));
+            history.pushState(null, null, addNoLayout(url));
         })
         return false;
+    });
+
+    $(window).on('popstate', function(e){
+        get(window.location.href, function(data){
+            processResponse($(data));
+        })
     });
 
     $(document).on('submit', 'form', function(){
