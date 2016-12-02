@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/css/bootstrap.min.css"
               asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
-        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     </environment>
 </head>
 <body>
@@ -34,9 +34,6 @@
                     <li><a asp-area="" asp-controller="Home" asp-action="PostExample">Post Method</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
-                    <li>
-                        <a href="javascript:void(0)" id="counter">0</a>
-                    </li>
                 </ul>
             </div>
         </div>
@@ -49,6 +46,12 @@
         <footer>
             <p>&copy; 2016 - HybridSPA</p>
         </footer>
+    </div>
+    <div class="timer">
+        <div>
+            This counter generated using javascript function. 
+            Counter will start from 0 when the page refreshed</div>
+        <div class="counter"></div>
     </div>
 
     <environment names="Development">
@@ -75,9 +78,9 @@
         $(function(){
             var counter = 0;
             setInterval(function(){
-                $('#counter').text(counter.toString());
+                $('.timer .counter').text(counter.toString());
                 counter++;
-            }, 1000)
+            }, 100)
         })
     </script>
 </body>

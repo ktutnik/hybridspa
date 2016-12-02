@@ -29,6 +29,28 @@ textarea {
     width: 100%;
 }
 
+.post-example{
+    margin: 8px;
+}
+
+.timer {
+    display: block;
+    position: absolute;
+    width: 300px;
+    bottom: 8px;
+    right: 8px;
+    box-shadow: 0px 0px 10px #ccc;
+    border-radius: 4px;
+    background: #ff0023;
+    padding: 8px;
+    color: #fff;
+}
+.timer .counter {
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center
+}
+
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {
   /* Hide captions */
