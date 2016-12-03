@@ -15,9 +15,9 @@
     });
 
     $(document).on('submit', 'form', function(){
-        post($(this), function(data){
+        post(function(data){
             processResponse($(data))
-        })
+        });
     });
 
     $(document).ready(function(){
@@ -47,21 +47,17 @@
             })
     }
 
-    function initForms(target){
-        target.each(function(){
-            var form = $(this)
-            if(!form.is('form')){
-                form = form.find('form');
-            }
-            if(form.length > 0){
-                form.attr('target', '__post_target');
-                form.attr('action', addNoLayout(form.attr('action')));
-            }
-        });
-        
+    function initForms(form){
+        if(!form.is('form')){
+            form = form.find('form');
+        }
+        if(form.length > 0){
+            form.attr('target', '__post_target');
+            form.attr('action', addNoLayout(form.attr('action')));
+        }
     }
 
-    function post(form, success){
+    function post(success){
         $('<iframe name="__post_target"/>').appendTo('body')
             .hide()
             .load(function(){
